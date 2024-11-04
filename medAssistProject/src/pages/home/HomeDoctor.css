@@ -1,0 +1,102 @@
+/* src/pages/HomeDoctor.css */
+.home-doctor-centrar{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.home-doctor-container {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    
+  }
+  
+  .home-doctor-perfil {
+    width: 35%; /* Ocupa el 35% del ancho */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .home-doctor-perfil .home-doctor-datos{
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .home-doctor-panel {
+    width: 60%; /* Ocupa el 65% del ancho */
+    padding: 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacia los elementos */
+    height: 90%;
+    border-radius: 40px;
+
+  }
+  
+  .home-doctor-bienvenida {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .home-doctor-bienvenida h1 {
+    font-size: 4rem;
+    color: #131212;
+  }
+  
+  .home-doctor-parrafo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1 10%;
+    color: #555;
+  }
+  .home-doctor-parrafo p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .home-doctor-opciones {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Organiza en columnas */
+    gap: 20px;
+    padding-top: 20px;
+  }
+  
+  .home-doctor-opcion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 7px;
+    background-color: #629b98;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-doctor-opcion img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .home-doctor-opcion p {
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
