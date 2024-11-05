@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./pages/login/Login"; // Ruta al componente Login
 import Chatbot from "./pages/chatbot/Chatbot";
 import HomeDoctor from "./pages/home/HomeDoctor";
+import Calendar from "./pages/Calendar/Calendar";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/register" element={<Login />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/home" element={<HomeDoctor/>}/>
+        <Route path="/calendar" element={<Calendar/>}/>
       </Routes>
     </Router>
   );

@@ -1,0 +1,154 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .calendar-app {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #555;
+    background-color: #ffffff;
+    flex-direction: column;
+  }
+  .logout-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 9px;
+    background: var(--celeste, #7AB2D3);
+    backdrop-filter: blur(2px);
+    width: 12vw;
+    height: 70px;
+    flex-shrink: 0;
+    border: none; /* Quita el borde negro */
+    outline: none;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 900;
+    color: whitesmoke;
+    font-size:medium;
+  }
+ 
+  .date-Calendar-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 6vw;
+    font-size:large;
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
+  }
+  .date-Calendar-details {
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10vw;
+    flex-direction: row;
+    font-size:large;
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
+  }
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+  }
+  .logo-Calendar {
+    width: 40px;
+    border-radius: 9px;
+    height: 40px;
+    background: var(--celeste, #7AB2D3);
+    backdrop-filter: blur(2px);
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  }
+  
+  .header-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 89vw;
+    border-bottom: 0.2px solid #A1A1A1;
+    padding-bottom: 1vh;
+}
+  
+  .search-bar {
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+  
+  .program-button {
+    background-color: #444;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .date-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 86vw;
+  }
+  
+  .week-button {
+    background-color: #444;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  /* Content */
+  .content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .ia-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #444;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+  }
+  

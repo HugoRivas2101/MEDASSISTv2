@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import inicioImage from "./assets/inicio-img.jpeg";
 import "./HomeDoctor.css";
 import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 function HomeDoctor() {
 
   return (
-    <main className="home-doctor-centrar">
+    <>
+    <Navbar/>
+     <main className="home-doctor-centrar">
     <main className="home-doctor-container">
       <div className="home-doctor-perfil">
         <h2>Doctor</h2>
@@ -49,6 +52,9 @@ function HomeDoctor() {
       </div>
     </main>
     </main>
+    
+    </>
+   
   );
 }
 
