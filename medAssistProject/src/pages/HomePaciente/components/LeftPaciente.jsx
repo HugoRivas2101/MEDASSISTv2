@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LeftPaciente.css';
 import ImagenPerfil from '../assets/imagenperfil.png';
-import Codigobarras from '../assets/Codigobarra.png';
+import Codigobarras from '../assets/CodigoBarra.png';
 function LeftPaciente() {
   return (
     <div className="left-paciente">
