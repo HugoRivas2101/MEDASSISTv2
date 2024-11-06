@@ -17,28 +17,6 @@ function Calendar() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [view, setView] = useState("Semana"); // Estado para la vista de calendario seleccionada
-  const [showEventForm, setShowEventForm] = useState(false);
-  const [events, setEvents] = useState([]);
-
-  const [newEvent, setNewEvent] = useState({
-    title: "",
-    dayIndex: 0,
-    startTime: "",
-    endTime: "",
-  });
-
-  // Handle form data changes
-  const handleEventChange = (e) => {
-    const { name, value } = e.target;
-    setNewEvent((prev) => ({ ...prev, [name]: value }));
-  };
-
-  // Add event to the events list
-  const handleSaveEvent = () => {
-    setEvents((prevEvents) => [...prevEvents, newEvent]);
-    setShowEventForm(false);
-    setNewEvent({ title: "", dayIndex: 0, startTime: "", endTime: "" });
-  };
 
   return (
     <div className="calendar-app">
@@ -153,22 +131,7 @@ function Calendar() {
         </header>
 
         {/* Content: Visualización del calendario */}
-        <CalendarView events={events}/>
-
-        {/* Modal Formulario de evento */}
-        {showEventForm && (
-          <div className="event-form-overlay">
-            <div className="event-form">
-              <button onClick={() => setShowEventForm(false)}>X</button>
-              <h3>Nuevo Evento</h3>
-              <input type="text" name="title" placeholder="Nombre del evento" value={newEvent.title} onChange={handleEventChange} className="form-input" />
-              <input type="number" name="dayIndex" placeholder="Día (0 para Domingo, 6 para Sábado)" value={newEvent.dayIndex} onChange={handleEventChange} className="form-input" />
-              <input type="text" name="startTime" placeholder="Hora de inicio (ej: 9:00)" value={newEvent.startTime} onChange={handleEventChange} className="form-input" />
-              <input type="text" name="endTime" placeholder="Hora de fin (ej: 10:30)" value={newEvent.endTime} onChange={handleEventChange} className="form-input" />
-              <button onClick={handleSaveEvent} className="save-button">Guardar</button>
-            </div>
-          </div>
-        )}
+        <CalendarView />
       </div>
     </div>
   );
