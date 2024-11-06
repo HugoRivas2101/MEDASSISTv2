@@ -1,5 +1,6 @@
 import React, { useState }from "react";
 import loginImage from "./assets/image-login.png";
+import googleIcon from "./assets/google-logo.svg";
 import MedAssistlogo from '../../assets/MedAssistLogo.png';
 import api from '../../services/api';
 import "./Login.css";
@@ -26,7 +27,10 @@ function Login() {
         alert("Error en la solicitud")
     }
   };
-
+  const handleGoogleLogin = () => {
+    // Redirige a la ruta del backend configurada para manejar Google OAuth
+    window.location.href = "http://localhost:5000/login";
+  };
 
   return (
     <main className="login-container">
@@ -49,6 +53,9 @@ function Login() {
         </div>
         <div className="login-box">
           <h2>Iniciar Sesión como {userType}</h2>
+          <button className="google-login-button" onClick={handleGoogleLogin}>
+            <img src={googleIcon} alt="Google login" className="google-icon" />
+          </button>
           <form onSubmit={handleSubmit}>
             <label>Correo Electrónico</label>
             <input
@@ -65,6 +72,7 @@ function Login() {
             />
             <button type="submit" >Ingresar</button>
           </form>
+          
           <p className="login-register-link">
             ¿No estás registrado? <a href="/register">Crear una cuenta</a>
           </p>
