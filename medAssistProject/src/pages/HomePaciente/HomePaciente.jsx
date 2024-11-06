@@ -3,6 +3,7 @@ import "./HomePaciente.css";
 import Navbar from "../../components/Navbar";
 import LeftPaciente from "./components/LeftPaciente";
 import RightPaciente from "./components/RightPaciente";
+
 import MainContent from "./components/MainContent";
 
 function HomePaciente() {
