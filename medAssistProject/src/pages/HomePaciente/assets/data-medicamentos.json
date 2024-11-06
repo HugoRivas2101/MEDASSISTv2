@@ -1,0 +1,28 @@
+{
+    "signos_vitales": [
+        {
+            "id": 1,
+            "altura": "1.75 m",
+            "peso": "70 kg",
+            "masa_corporal": "22.9",
+            "temperatura": "36.5 °C",
+            "frecuencia_respiratoria": "16 respiraciones/min",
+            "presion_arterial": "120/80 mmHg",
+            "frecuencia_cardiaca": "72 latidos/min"
+        }
+    ],
+    "medicamentos": [
+        {
+            "id": 1,
+            "nombre": "Paracetamol",
+            "dosis": "500 mg",
+            "frecuencia": "Cada 8 horas"
+        },
+        {
+            "id": 2,
+            "nombre": "Ibuprofeno",
+            "dosis": "200 mg",
+            "frecuencia": "Cada 12 horas"
+        }
+    ]
+}
