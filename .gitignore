@@ -1,2 +1,3 @@
 medAssistProject/.env
 back/.env
+__pycache__/
