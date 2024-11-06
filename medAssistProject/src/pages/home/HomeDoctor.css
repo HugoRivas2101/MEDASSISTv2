@@ -23,7 +23,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
+  }
+
+  .home-doctor-perfil img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+
   }
 
   .home-doctor-perfil .home-doctor-datos{

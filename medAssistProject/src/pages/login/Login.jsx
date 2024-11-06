@@ -1,5 +1,6 @@
 import React, { useState }from "react";
-import loginImage from "./assets/login-img.jpeg";
+import loginImage from "./assets/image-login.png";
+import MedAssistlogo from '../../assets/MedAssistLogo.png';
 import api from '../../services/api';
 import "./Login.css";
 
@@ -37,7 +38,7 @@ function Login() {
           <div className="line-container">
             <hr className="line" />
             <div className="circle">
-              <img src={loginImage} alt="perfil" />
+              <img src={MedAssistlogo} alt="perfil" />
             </div>
             <hr className="line" />
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import inicioImage from "./assets/inicio-img.jpeg";
+import inicioImage from "./assets/imagenperfil.png";
 import "./HomeDoctor.css";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
