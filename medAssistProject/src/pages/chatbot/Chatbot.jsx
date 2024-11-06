@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./Chatbot.css";
 import api from '../../services/api';  // Importa la configuración de Axios
 import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
@@ -29,7 +30,7 @@ function Chatbot() {
   return (
     
     <main className="chatbot-main">
-      <Header/> 
+      <Navbar/> 
     <div className="chatbot-container">
       <div className="chatbot-messages">
         {messages.map((msg, index) => (
