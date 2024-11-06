@@ -5,7 +5,7 @@ import Login from "./pages/login/Login"; // Ruta al componente Login
 import Chatbot from "./pages/chatbot/Chatbot";
 import HomeDoctor from "./pages/home/HomeDoctor";
 import Calendar from "./pages/Calendar/Calendar";
-
+import HomePaciente from "./pages/HomePaciente/HomePaciente";
 function App() {
   return (
     <Router>
@@ -16,6 +16,7 @@ function App() {
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/home" element={<HomeDoctor/>}/>
         <Route path="/calendar" element={<Calendar/>}/>
+        <Route path="/homePaciente" element={<HomePaciente/>}/>
       </Routes>
     </Router>
   );
