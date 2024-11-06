@@ -1,38 +1,35 @@
-/* Sidebar for desktop */
+/* SideBar.css */
 .sidebar {
-    width: 6vw;
-    /* background-color: #333; */
-    background: linear-gradient(180deg, #7AB2D3 0%, #B9E5E8 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    transition: width 0.3s;
-  }
-  
-  .sidebar-item {
-    width: 4vw;
-    height: 7vh;
-    background-color: #DFF2F0;
-    margin: 10px 0;
-    border-radius: 5px;
-  }
-  
-  /* Sidebar for mobile */
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 0;
-      overflow: hidden;
-    }
-  
-    .sidebar.open {
-      width: 200px;
-      position: absolute;
-      z-index: 10;
-      background-color: #333;
-      top: 0;
-      left: 0;
-      height: 100vh;
-    }
-  }
+  width: 250px;
+  background: linear-gradient(180deg, #7AB2D3 0%, #B9E5E8 100%);
+  color: white;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.sidebar.open {
+  width: 300px; /* Puedes ajustar esto según el tamaño que desees cuando esté abierto */
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: #444;
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.sidebar-label {
+  font-size: 16px;
+}
+
   
