@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.css';
+import './SideBar.css';
 
 function Sidebar({ isOpen }) {
   return (
