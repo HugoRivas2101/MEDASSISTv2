@@ -133,10 +133,9 @@
   /* Content */
   .content {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     position: relative;
+    width: 100%;
   }
   
   .ia-button {
@@ -151,4 +150,106 @@
     border-radius: 50%;
     font-size: 18px;
   }
+
+  .calendar-view{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .calendar-header{
+    display: grid;
+    grid-template-columns: auto repeat(7, 1fr);
+    background-color: #f3f3f3;
+    font-family: 'Mulish', sans-serif;
+    font-size: medium;
+  }
+
+  .calendar-body{
+    display: grid;
+    grid-template-columns: auto repeat(7, 1fr);
+  }
+
+  .hour-column .hour-cell{
+    height: 2.5rem;
+    color: #777;
+    font-size: 0.875rem;
+    background-color: #f9f9f9;
+  }
+
+  .day-column {
+    display: flex;
+    flex-direction: column;
+  }
   
+  .hour-slot {
+    background-color: #ffffff;
+    position: relative;
+    height: 2.5rem;
+    border-top: 1px solid #e5e5e5;
+  }
+  
+  .hour-slot:hover {
+    background-color: #f1f5f9;
+  }
+  
+  /* Estilos para el formulario emergente */
+.event-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.event-form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.event-form h3 {
+  margin-bottom: 10px;
+}
+
+.event-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.event-form button.save-button {
+  margin-top: 10px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Estilo del evento dentro del calendario */
+.event {
+  position: absolute;
+  font-size: 0.875rem;
+  padding: 4px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
