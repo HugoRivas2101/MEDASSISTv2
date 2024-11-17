@@ -37,12 +37,14 @@ function Login() {
       <div className="login-imagen">
         <img src={loginImage} alt="imagen de login" />
       </div>
+   <div className="login-content">
       <div className="login-panel">
         <div className="login-header">
+          
           <div className="line-container">
             <hr className="line" />
             <div className="circle">
-              <img src={MedAssistlogo} alt="perfil" />
+              <img src={MedAssistlogo} alt="perfil" onClick={() => window.location.href = '/landing'} />
             </div>
             <hr className="line" />
           </div>
@@ -78,6 +80,9 @@ function Login() {
           </p>
         </div>
       </div>
+    </div>
+      
+     
     </main>
   );
 }

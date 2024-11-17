@@ -18,6 +18,7 @@ function LeftPaciente() {
     <div className="paciente-item2">
       <div className='title-datos-personales'>
       DATOS PERSONALES
+      
       </div>
       <div className='content-datos-personales'></div>
       

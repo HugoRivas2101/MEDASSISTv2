@@ -14,6 +14,7 @@ html {
 .login-container {
   display: flex;
   height: 100vh;
+  width: 100%;
 }
 
 /* Estilos para la parte de la imagen */
@@ -31,10 +32,15 @@ html {
   height: 100%;
   object-fit: cover;
 }
+.login-content{
+  width: 50%;
+  
+}
 
 /* Estilos para la parte del login */
 .login-panel {
-  width: 50%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
