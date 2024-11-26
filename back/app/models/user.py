@@ -20,4 +20,4 @@ class User(db.Model):
     password = db.Column(db.String(60), nullable=False)
 
     user_info = db.relationship('UserInfo', back_populates='user', uselist=False)
-    #user_medication = db.relationship('UserMedication', back_populates='user', uselist=False)
+    user_medications = db.relationship('UserMedication',back_populates='user',lazy=True,cascade="all, delete-orphan")

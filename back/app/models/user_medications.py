@@ -12,4 +12,4 @@ class UserMedication(db.Model):
     fecha_fin = db.Column(db.Date)  # Fecha de finalización del tratamiento (opcional)
 
     # Relación inversa para acceder desde `User`
-    #user = db.relationship('User', back_populates='user_info')
+    user = db.relationship('User', back_populates='user_medications')

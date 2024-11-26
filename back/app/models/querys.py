@@ -1,5 +1,5 @@
 from app.models.user import User
-from app.models.medications import Medications
+from back.app.models.user_medications import UserMedication
 
 def obtener_usuario_con_medicamentos(user_id):
     user = User.query.get(user_id)
