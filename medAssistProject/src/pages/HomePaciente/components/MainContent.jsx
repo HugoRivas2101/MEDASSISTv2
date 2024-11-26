@@ -3,36 +3,63 @@ import axios from 'axios'; // Importar Axios
 import './MainContent.css';
 
 function MainContent() {
-  const [medications, setMedications] = useState([]); // Estado para almacenar la lista de medicamentos
-  const [loading, setLoading] = useState(true); // Estado para el indicador de carga
-  const [error, setError] = useState(null); // Estado para manejar errores
+  const [medications, setMedications] = useState([]); // Estado para medicamentos
+  const [vitalSigns, setVitalSigns] = useState(null); // Estado para signos vitales
+  const [loadingMedications, setLoadingMedications] = useState(true); // Indicador de carga para medicamentos
+  const [loadingVitalSigns, setLoadingVitalSigns] = useState(true); // Indicador de carga para signos vitales
+  const [errorMedications, setErrorMedications] = useState(null); // Error en medicamentos
+  const [errorVitalSigns, setErrorVitalSigns] = useState(null); // Error en signos vitales
 
-  // Realizar la solicitud HTTP al backend
+  // Solicitar medicamentos
   useEffect(() => {
     const fetchMedications = async () => {
       try {
         const response = await axios.get('http://localhost:5000/user/medicines', {
           withCredentials: true, // Incluir credenciales (cookies o tokens)
         });
-        setMedications(response.data); // Guardar la lista de medicamentos
-        setLoading(false); // Desactivar el indicador de carga
+        setMedications(response.data);
+        setLoadingMedications(false);
       } catch (error) {
-        setError(error.message);
-        setLoading(false); // Desactivar el indicador de carga
+        setErrorMedications(error.message);
+        setLoadingMedications(false);
       }
     };
 
     fetchMedications();
-  }, []); // Ejecutar solo una vez al montar el componente
+  }, []);
 
-  // Mostrar un indicador de carga mientras se obtienen los datos
-  if (loading) {
+  // Solicitar signos vitales
+  useEffect(() => {
+    const fetchVitalSigns = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/user/signs', {
+          withCredentials: true, // Incluir credenciales (cookies o tokens)
+        });
+        setVitalSigns(response.data);
+        setLoadingVitalSigns(false);
+      } catch (error) {
+        setErrorVitalSigns(error.message);
+        setLoadingVitalSigns(false);
+      }
+    };
+
+    fetchVitalSigns();
+  }, []);
+
+  // Mostrar carga o errores de medicamentos
+  if (loadingMedications) {
     return <div>Cargando medicamentos...</div>;
   }
+  if (errorMedications) {
+    return <div>Error al cargar medicamentos: {errorMedications}</div>;
+  }
 
-  // Mostrar un mensaje de error si ocurre un problema
-  if (error) {
-    return <div>Error al cargar medicamentos: {error}</div>;
+  // Mostrar carga o errores de signos vitales
+  if (loadingVitalSigns) {
+    return <div>Cargando signos vitales...</div>;
+  }
+  if (errorVitalSigns) {
+    return <div>Error al cargar signos vitales: {errorVitalSigns}</div>;
   }
 
   return (
@@ -43,14 +70,14 @@ function MainContent() {
           {medications.length > 0 ? (
             <ul>
               {medications.map((medication) => (
-                <li key={medication.id}>
+                <div key={medication.id}>
                   <strong>{medication.nombre_medicamento}</strong> - {medication.dosis} - {medication.frecuencia}
                   <br />
                   <span>
                     Desde: {new Date(medication.fecha_inicio).toLocaleDateString()} hasta{' '}
                     {new Date(medication.fecha_fin).toLocaleDateString()}
                   </span>
-                </li>
+                </div>
               ))}
             </ul>
           ) : (
@@ -61,8 +88,33 @@ function MainContent() {
       <div className="content-item">
         <div className="title-datos-personales">ULTIMOS SIGNOS VITALES (TRIAJE)</div>
         <div className="content-datos-personales">
-          {/* Aquí puedes agregar la información de signos vitales */}
-          <p>No hay datos disponibles.</p>
+          {vitalSigns ? (
+            <div className="vital-signs-grid">
+              <div>
+                <strong>Altura:</strong> {vitalSigns.altura} m
+              </div>
+              <div>
+                <strong>Peso:</strong> {vitalSigns.peso} kg
+              </div>
+              <div>
+                <strong>IMC:</strong> {vitalSigns.imc}
+              </div>
+              <div>
+                <strong>Temperatura:</strong> {vitalSigns.temperatura} °C
+              </div>
+              <div>
+                <strong>Frecuencia Respiratoria:</strong> {vitalSigns.frecuencia_respiratoria} rpm
+              </div>
+              <div>
+                <strong>Presión Arterial:</strong> {vitalSigns.presion_arterial}
+              </div>
+              <div>
+                <strong>Frecuencia Cardíaca:</strong> {vitalSigns.frecuencia_cardiaca} bpm
+              </div>
+            </div>
+          ) : (
+            <p>No hay datos de signos vitales disponibles.</p>
+          )}
         </div>
       </div>
     </main>

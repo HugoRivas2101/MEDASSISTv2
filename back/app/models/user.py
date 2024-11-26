@@ -21,3 +21,4 @@ class User(db.Model):
 
     user_info = db.relationship('UserInfo', back_populates='user', uselist=False)
     user_medications = db.relationship('UserMedication',back_populates='user',lazy=True,cascade="all, delete-orphan")
+    vital_signs=db.relationship('VitalSigns', back_populates='user', uselist=False)

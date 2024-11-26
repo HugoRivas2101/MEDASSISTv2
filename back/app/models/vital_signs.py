@@ -14,4 +14,4 @@ class VitalSigns(db.Model):
     frecuencia_cardiaca = db.Column(db.Integer)  # Latidos por minuto
 
     # Relación inversa para acceder desde `User`
-    user = db.relationship('user', backref=db.backref('vital_signs', lazy=True, cascade="all, delete-orphan"))
+    user = db.relationship('User', back_populates='vital_signs')
