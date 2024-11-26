@@ -21,10 +21,10 @@ google = oauth.register(
     client_id=os.getenv("GOOGLE_CLIENT_ID"),
     #client_secret=app.config["GOOGLE_CLIENT_SECRET"],  # Desde Config
     client_secret=os.getenv("GOOGLE_CLIENT_SECRET"),
-    authorize_url="https://accounts.google.com/o/oauth2/auth",
-    access_token_url="https://accounts.google.com/o/oauth2/token",
-    client_kwargs={"scope": "openid profile email"}
-
+    #authorize_url="https://accounts.google.com/o/oauth2/auth",
+    #access_token_url="https://accounts.google.com/o/oauth2/token",
+    server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
+    client_kwargs={"scope": "openid profile email","nonce": True}
 )
 
 
@@ -46,12 +46,14 @@ def create_app():
         from .routes.medical_history_routes import medical_history_bp
         from .routes.chatbot_routes import chatbot_bp
         from .routes.oauth_routes import oauth_bp
+        from .routes.user_info_routes import user_bp
 
         app.register_blueprint(auth_bp)
         app.register_blueprint(test_bp)
         app.register_blueprint(medical_history_bp)
         app.register_blueprint(chatbot_bp)
         app.register_blueprint(oauth_bp)
+        app.register_blueprint(user_bp)
         '''
         Acá agregamos los blueprints(son como módulos que creas).
         Los blueprints son declarados en las rutas de /routes/. Faltaría agregar el blueprint de chat.
@@ -60,6 +62,5 @@ def create_app():
         app.register_blueprint(chat_bp)
 
         '''
-        db.create_all()
 
     return app

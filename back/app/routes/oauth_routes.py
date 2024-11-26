@@ -4,7 +4,7 @@ from flask import Blueprint
 from ..controllers.oauth_controller import OAuthController
 
 
-oauth_bp = Blueprint("oauth", __name__)
+oauth_bp = Blueprint("oauth", __name__,url_prefix='/oauth')
 
 @oauth_bp.route("/login")
 def login():

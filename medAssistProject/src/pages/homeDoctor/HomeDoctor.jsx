@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import Codigobarras from './assets/codbarras.png';
 import Agenda from './assets/calendaar.png';
-import CheckMarck from './assets/checkmark.png';
+import CheckMarck from './assets/CheckMark.png';
 import users from './assets/users.png';
 import { text } from "@fortawesome/fontawesome-svg-core";
 

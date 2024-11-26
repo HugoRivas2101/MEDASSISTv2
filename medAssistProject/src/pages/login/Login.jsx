@@ -29,7 +29,7 @@ function Login() {
   };
   const handleGoogleLogin = () => {
     // Redirige a la ruta del backend configurada para manejar Google OAuth
-    window.location.href = "http://localhost:5000/login";
+    window.location.href = "http://localhost:5000/oauth/login";
   };
 
   return (
