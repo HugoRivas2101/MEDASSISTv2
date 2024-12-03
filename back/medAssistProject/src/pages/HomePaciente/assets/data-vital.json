@@ -1,0 +1,24 @@
+{
+    "signos_vitales": [
+      {
+        "id": 1,
+        "altura": "1.75 m",
+        "peso": "70 kg",
+        "masa_corporal": "22.9",
+        "temperatura": "36.5 °C",
+        "frecuencia_respiratoria": "16 respiraciones/min",
+        "presion_arterial": "120/80 mmHg",
+        "frecuencia_cardiaca": "72 latidos/min"
+      },
+      {
+        "id": 2,
+        "altura": "1.60 m",
+        "peso": "55 kg",
+        "masa_corporal": "21.5",
+        "temperatura": "36.8 °C",
+        "frecuencia_respiratoria": "18 respiraciones/min",
+        "presion_arterial": "115/75 mmHg",
+        "frecuencia_cardiaca": "68 latidos/min"
+      }
+    ]
+  }

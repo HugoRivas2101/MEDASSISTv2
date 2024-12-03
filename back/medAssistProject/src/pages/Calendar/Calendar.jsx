@@ -14,14 +14,14 @@ import Agenda from "./assets/Moleskine.png";
 import CalendarView from "./CalendarView"; // Importamos el componente
 
 function Calendar() {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [view, setView] = useState("Semana"); // Estado para la vista de calendario seleccionada
 
   return (
     <div className="calendar-app">
       {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} /> 
+      <Sidebar isOpen={isSidebarOpen} />
 
       {/* Main content */}
       <div className="main-content">
@@ -113,10 +113,7 @@ function Calendar() {
                 }
               />
             </div>
-            <div
-              className="relative"
-              style={{ display: "flex", alignItems: "center", width: "7vw" }}
-            >
+            <div className="relative" style={{ display: "flex", alignItems: "center", width: "7vw" }}>
               <img src={Agenda} alt="LogoCa" style={{ width: "40px" }} />
               {/* Selector de vista de calendario */}
               <select
@@ -134,9 +131,7 @@ function Calendar() {
         </header>
 
         {/* Content: Visualización del calendario */}
-        <div className="calendar-view-container">
-          <CalendarView view={view} selectedDate={selectedDate} />
-        </div>
+        <CalendarView />
       </div>
     </div>
   );
