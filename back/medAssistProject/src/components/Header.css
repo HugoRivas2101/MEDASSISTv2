@@ -1,0 +1,25 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  
+  header a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  header a.header-logo{
+    font-weight: bold;
+  }
+  
+  header nav{
+    display: flex;
+    gap: 15px;
+  }
+  
+  header div.header-user_esquina{
+    display: flex;
+    gap: 8px
+  }
+  
