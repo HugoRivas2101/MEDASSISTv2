@@ -3,6 +3,8 @@ import Sidebar from "../../components/SideBar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
+import { registerLocale } from "react-datepicker";
+import es from "date-fns/locale/es";  // Importar idioma español
 import "./Calendar.css";
 import MedAssistCalendar from "./assets/calendar.png";
 import MedAdd from "./assets/MAdd.png";
@@ -13,6 +15,8 @@ import Today from "./assets/Today.png";
 import Agenda from "./assets/Moleskine.png";
 import CalendarView from "./CalendarView"; // Importamos el componente
 import Navbar from "../../components/Navbar";
+
+registerLocale("es", es);  // Registrar el idioma español
 
 function Calendar() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
