@@ -12,7 +12,7 @@
 }
 
 /* Main Content */
-.main-content {
+.calendar-main-content {
   width: 90%;
   flex-grow: 1;
   display: flex;
@@ -21,7 +21,7 @@
 }
 
 /* Header */
-.header {
+.calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@
   background-color: #ffffff;
   flex-direction: column;
 }
-.logout-button{
+.calendar-logout-button{
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -68,7 +68,7 @@
   font-family: 'Mulish', sans-serif;
   font-weight: bold;
 }
-.menu-toggle {
+.calendar-menu-toggle {
   display: none;
   font-size: 24px;
   color: white;

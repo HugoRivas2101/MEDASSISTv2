@@ -8,6 +8,7 @@ import Calendar from "./pages/Calendar/Calendar";
 import HomePaciente from "./pages/HomePaciente/HomePaciente";
 import Home from "./pages/Home/Home";
 import LandingPage from "./pages/LandingPage/Landing";
+import Helpcenter from "./pages/Helpcenter/Helpcenter";
 function App() {
   return (
     <Router>
@@ -20,7 +21,7 @@ function App() {
         <Route path="/calendar" element={<Calendar/>}/>
         <Route path="/homePaciente" element={<HomePaciente/>}/>
         <Route path="/landing" element={<LandingPage/>}/>
-        
+        <Route path="/helpcenter" element={<Helpcenter/>}/>
       </Routes>
     </Router>
   );

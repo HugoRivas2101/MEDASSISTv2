@@ -24,11 +24,11 @@ function Calendar() {
       <Sidebar isOpen={isSidebarOpen} />
 
       {/* Main content */}
-      <div className="main-content">
+      <div className="calendar-main-content">
         {/* Header */}
-        <header className="header">
+        <header className="calendar-header">
           <button
-            className="menu-toggle"
+            className="calendar-menu-toggle"
             onClick={() => setSidebarOpen(!isSidebarOpen)}
           >
             ☰
@@ -42,7 +42,7 @@ function Calendar() {
               />
               <span>Calendar</span>
             </div>
-            <button className="logout-button">
+            <button className="calendar-logout-button">
               <span>Programar una consulta</span>
               <img src={MedAdd} alt="LogoCa" style={{ width: "40px" }} />
             </button>
