@@ -12,6 +12,7 @@ import Forward from "./assets/Forward.png";
 import Today from "./assets/Today.png";
 import Agenda from "./assets/Moleskine.png";
 import CalendarView from "./CalendarView"; // Importamos el componente
+import Navbar from "../../components/Navbar";
 
 function Calendar() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -21,116 +22,19 @@ function Calendar() {
   return (
     <div className="calendar-app">
       {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} /> 
+      <Navbar />
 
       {/* Main content */}
-      <div className="main-content">
+      <div className="calendar-main-content">
         {/* Header */}
-        <header className="header">
+        <header className="calendar-header">
           <button
             className="menu-toggle"
             onClick={() => setSidebarOpen(!isSidebarOpen)}
           >
             ☰
           </button>
-          <div className="header-controls">
-            <div className="date-Calendar-logo">
-              <img
-                src={MedAssistCalendar}
-                alt="LogoCa"
-                className="logo-Calendar"
-              />
-              <span>Calendar</span>
-            </div>
-            <button className="logout-button">
-              <span>Programar una consulta</span>
-              <img src={MedAdd} alt="LogoCa" style={{ width: "40px" }} />
-            </button>
-          </div>
-          <div className="date-controls">
-            <div
-              className="date-Calendar-details"
-              style={{ display: "flex", alignItems: "center" }}
-            >
-              <button
-                className="today-button"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  border: "none",
-                  background: "none",
-                  width: "8vw",
-                  fontFamily: "Mulish",
-                }}
-              >
-                <img src={Today} alt="LogoCa" style={{ width: "40px" }} />
-                <span>Hoy</span>
-              </button>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  width: "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <div className="days-button">
-                  <img
-                    src={LeftArrow}
-                    alt="LogoCa"
-                    style={{ width: "30px", border: "none", background: "none" }}
-                  />
-                </div>
-                <div className="days-button">
-                  <img
-                    src={RightArrow}
-                    alt="LogoCa"
-                    style={{ width: "30px", border: "none", background: "none" }}
-                  />
-                </div>
-              </div>
-
-              {/* Selector de fecha con DatePicker */}
-              <DatePicker
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)} // Actualiza la fecha seleccionada
-                dateFormat="dd 'de' MMMM" // Formato de la fecha a mostrar
-                customInput={
-                  <button
-                    className="calendar-button"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      border: "none",
-                      background: "none",
-                      width: "8vw",
-                      fontFamily: "Mulish",
-                    }}
-                  >
-                    <span>{format(selectedDate, "dd 'de' MMMM")}</span>
-                    <img src={Forward} alt="LogoCa" style={{ width: "20px" }} />
-                  </button>
-                }
-              />
-            </div>
-            <div
-              className="relative"
-              style={{ display: "flex", alignItems: "center", width: "7vw" }}
-            >
-              <img src={Agenda} alt="LogoCa" style={{ width: "40px" }} />
-              {/* Selector de vista de calendario */}
-              <select
-                value={view}
-                onChange={(e) => setView(e.target.value)}
-                className="bg-input text-foreground border border-border rounded p-2 ml-2"
-              >
-                <option>Dia</option>
-                <option>Semana</option>
-                <option>Mes</option>
-                <option>Agenda</option>
-              </select>
-            </div>
-          </div>
+          
         </header>
 
         {/* Content: Visualización del calendario */}
