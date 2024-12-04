@@ -96,9 +96,9 @@ function HomeDoctor() {
                 <img src={Agenda} alt="perfil" />
                 <p>Visualizar Mis Citas</p>
               </div>
-              <div className="home-doctor-opcion">
+              <div className="home-doctor-opcion" onClick={() => window.location.href = '/historialMedico'}>
                 <img src={users} alt="perfil" />
-                <p>Mis Pacientes</p>
+                <p>Mi Historial Médico</p>
               </div>
             </div>
           </div>

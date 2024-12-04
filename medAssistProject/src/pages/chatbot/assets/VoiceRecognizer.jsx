@@ -35,12 +35,12 @@ function VoiceRecognizer({ onResult, onStart, onEnd, isListening }) {
   };
 
   return (
-    <button
+    <chatbot-button
       className={`voice-button ${isListening ? "listening" : ""}`}
       onClick={startListening}
     >
       🎤 {isListening ? "Escuchando..." : "Hablar"}
-    </button>
+    </chatbot-button>
   );
 }
 

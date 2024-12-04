@@ -67,17 +67,18 @@
   margin-right: 8px;
 }
 
-.chatbot-input button {
+.chatbot-input chatbot-button {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #4a67a1;
   color: #ffffff;
   border: none;
   border-radius: 4px;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin: 2px;
 }
 
-.chatbot-input button:hover {
+.chatbot-input chatbot-button:hover {
   background-color: #0056b3;
 }

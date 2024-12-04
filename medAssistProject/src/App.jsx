@@ -5,7 +5,7 @@ import Login from "./pages/login/Login"; // Ruta al componente Login
 import Chatbot from "./pages/chatbot/Chatbot";
 import HomeDoctor from "./pages/homeDoctor/HomeDoctor";
 import Calendar from "./pages/Calendar/Calendar";
-import HomePaciente from "./pages/HomePaciente/HomePaciente";
+import Historialmedico from "./pages/Historial/Historialmedico";
 import Home from "./pages/Home/Home";
 import LandingPage from "./pages/LandingPage/Landing";
 import Register from "./pages/register/Register";
@@ -19,7 +19,7 @@ function App() {
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/home" element={<HomeDoctor/>}/>
         <Route path="/calendar" element={<Calendar/>}/>
-        <Route path="/homePaciente" element={<HomePaciente/>}/>
+        <Route path="/historialmedico" element={<Historialmedico/>}/>
         {/* <Route path="/landing" element={<LandingPage/>}/> */}
         
       </Routes>

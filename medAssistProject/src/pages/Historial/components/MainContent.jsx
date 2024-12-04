@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Importar Axios
 import './MainContent.css';
-
-function MainContent() {
+import altura from "../assets/limite-de-altura.png";
+import peso from "../assets/perdida-de-peso.png";
+import temperatura from "../assets/alta-temperatura.png";	
+import corazon from "../assets/corazon.png";
+import presion from "../assets/presion-arterial-baja.png";
+import imc from "../assets/imc.png";
+import respiratorio from "../assets/disnea.png"
+function MainContent() { 
   const [medications, setMedications] = useState([]); // Estado para medicamentos
   const [vitalSigns, setVitalSigns] = useState(null); // Estado para signos vitales
   const [loadingMedications, setLoadingMedications] = useState(true); // Indicador de carga para medicamentos
@@ -61,6 +67,7 @@ function MainContent() {
   if (errorVitalSigns) {
     return <div>Error al cargar signos vitales: {errorVitalSigns}</div>;
   }
+  const isImcHigh = vitalSigns && vitalSigns.imc > 30;
 
   return (
     <main className="main-content">
@@ -86,29 +93,65 @@ function MainContent() {
         </div>
       </div>
       <div className="content-item">
-        <div className="title-datos-personales">ULTIMOS SIGNOS VITALES (TRIAJE)</div>
+        <div className={`title-datos-personales ${isImcHigh ? 'high-imc' : ''}`}> ULTIMO DIÁGNOSTICO (TRIAJE)</div>
         <div className="content-datos-personales">
           {vitalSigns ? (
             <div className="vital-signs-grid">
-              <div>
+
+              <div className="signos-vitales-MC">
+              <img
+                src={altura}
+                alt="imagen de perfil"
+                style={{ width: "30px", height: "30px" }}
+              />
                 <strong>Altura:</strong> {vitalSigns.altura} m
               </div>
-              <div>
+              <div className="signos-vitales-MC">
+              <img
+                src={peso}
+                alt="imagen de perfil"
+                style={{ width: "30px", height: "30px" }}
+              />
                 <strong>Peso:</strong> {vitalSigns.peso} kg
               </div>
-              <div>
+              <div className="signos-vitales-MC">
+              <img
+                src={imc}
+                alt="imagen de perfil"
+                style={{ width: "30px", height: "30px" }}
+              />
                 <strong>IMC:</strong> {vitalSigns.imc}
               </div>
-              <div>
+              <div className="signos-vitales-MC">
+              <img
+                src={temperatura}
+                alt="imagen de perfil"
+                style={{ width: "30px", height: "30px" }}
+              />
                 <strong>Temperatura:</strong> {vitalSigns.temperatura} °C
               </div>
-              <div>
+              <div className="signos-vitales-MC">
+              <img
+                src={respiratorio}
+                alt="imagen de perfil"
+                style={{ width: "30px", height: "30px" }}
+              />
                 <strong>Frecuencia Respiratoria:</strong> {vitalSigns.frecuencia_respiratoria} rpm
               </div>
-              <div>
+              <div className="signos-vitales-MC">
+              <img
+                src={presion}
+                alt="imagen de perfil"
+                style={{ width: "30px", height: "30px" }}
+              />
                 <strong>Presión Arterial:</strong> {vitalSigns.presion_arterial}
               </div>
-              <div>
+              <div className="signos-vitales-MC">
+              <img
+                src={corazon}
+                alt="imagen de perfil"
+                style={{ width: "30px", height: "30px" }}
+              />
                 <strong>Frecuencia Cardíaca:</strong> {vitalSigns.frecuencia_cardiaca} bpm
               </div>
             </div>

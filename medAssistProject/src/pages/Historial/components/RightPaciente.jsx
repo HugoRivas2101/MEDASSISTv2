@@ -29,7 +29,7 @@ function RightPaciente() {
           <div className="consult-number">25</div>
         </div>
         
-        <button className="ia-button">IA</button>
+        <button className="ia-button" onClick={() => window.location.href = '/chatbot'}>IA</button>
       </div>
   );
 }

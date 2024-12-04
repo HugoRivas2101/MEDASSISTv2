@@ -1,12 +1,12 @@
 import React from "react";
-import "./HomePaciente.css";
+import "./Historialmedico.css";
 import Navbar from "../../components/Navbar";
 import LeftPaciente from "./components/LeftPaciente";
 import RightPaciente from "./components/RightPaciente";
 
 import MainContent from "./components/MainContent";
 
-function HomePaciente() {
+function Historialmedico() {
   return (
     <div className="dashboard">
       {/* Header */}
@@ -23,4 +23,4 @@ function HomePaciente() {
   );
 }
 
-export default HomePaciente;
+export default Historialmedico;

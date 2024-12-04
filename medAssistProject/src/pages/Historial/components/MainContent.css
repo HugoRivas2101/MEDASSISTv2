@@ -7,6 +7,11 @@
       flex-direction: column;
       height: 88vh;
   }
+  .signos-vitales-MC{
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+  }
   
   .content-item {
     flex: 1;
