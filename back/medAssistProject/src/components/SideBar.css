@@ -1,0 +1,35 @@
+/* SideBar.css */
+.sidebar {
+  width: 10%;
+  background: linear-gradient(180deg, #7AB2D3 0%, #B9E5E8 100%);
+  color: white;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.sidebar.open {
+  width: 300px; /* Puedes ajustar esto según el tamaño que desees cuando esté abierto */
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: #444;
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.sidebar-label {
+  font-size: 16px;
+}
+
+  

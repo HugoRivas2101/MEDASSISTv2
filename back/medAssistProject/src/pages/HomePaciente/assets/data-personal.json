@@ -1,0 +1,24 @@
+{
+    "personas": [
+      {
+        "id": 1,
+        "nombres": "Juan Pérez Gómez",
+        "dni": "12345678",
+        "telefono": "+51987654321",
+        "domicilio": "Av. Los Álamos 123, Lima, Perú",
+        "edad": 30,
+        "correo_electronico": "juan.perez@example.com",
+        "sexo": "Masculino"
+      },
+      {
+        "id": 2,
+        "nombres": "María López Ruiz",
+        "dni": "87654321",
+        "telefono": "+51912345678",
+        "domicilio": "Calle Las Flores 456, Arequipa, Perú",
+        "edad": 25,
+        "correo_electronico": "maria.lopez@example.com",
+        "sexo": "Femenino"
+      }
+    ]
+  }

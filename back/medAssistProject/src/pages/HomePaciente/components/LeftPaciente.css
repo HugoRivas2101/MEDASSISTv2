@@ -1,0 +1,89 @@
+.left-paciente {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  /* background-color: #f8f8f8; */
+  flex: 1;
+  padding-left: 20px;
+}
+/* pacitne ¿ item 1 */
+.paciente-item1 {
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #F8F8F8;
+  /* border-radius: 5px; */
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+ 
+}
+.editar-perfil {
+  justify-content: flex-end;
+  display: flex;
+}
+.imagen-perfil {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  flex: 1;
+}
+.nombre-perfil {
+  /* background: #7AB2D3; */
+  width: 80%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:x-large;
+  font-weight: bolder;
+  border-radius: 11px;
+  background: var(--celeste, #7AB2D3);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.11);
+  color: white;
+}
+
+
+
+/* paciente item 2 */
+.paciente-item2 {
+  border-radius: 11px;
+  background: #F8F8F8;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /* padding: 20px; */
+  text-align: center;
+  flex: 2;
+  border-radius: 11px;
+}
+.title-datos-personales {
+  font-family: "Poppins", sans-serif;
+  color: #FFF;
+  font-feature-settings: 'dlig' on;
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border-radius: 11px;
+  background: var(--celeste, #7AB2D3);
+  height: 6vh;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 14px;
+  align-items: center;
+}
+
+/* pacitne item 3 */
+.paciente-item3 {
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  flex: 0.5;
+  border-radius: 11px;
+  background: var(--verdeclaro, #DFF2F0);
+}

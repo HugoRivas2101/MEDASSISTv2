@@ -7,13 +7,11 @@
 
 .calendar-app {
   display: flex;
-  width: 100%;
   min-height: 100vh;
 }
 
 /* Main Content */
-.main-content {
-  width: 90%;
+.calendar-main-content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -21,22 +19,46 @@
 }
 
 /* Header */
-.header {
+.calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #555;
-  background-color: #ffffff;
-  flex-direction: column;
+  background-color: #ffffff; /* Asegura que el fondo sea blanco */
+  flex-direction: row; /* Cambiar a 'row' en lugar de 'column' */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
 }
-.logout-button{
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  border-bottom: 0.2px solid #A1A1A1;
+  padding-bottom: 1vh;
+}
+
+.date-Calendar-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 30vw; /* Ajusta el ancho para que sea más apropiado */
+  font-size: large;
+  font-family: 'Mulish', sans-serif;
+  font-weight: bold;
+}
+
+.logout-button {
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 9px;
   background: var(--celeste, #7AB2D3);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px); /* ya existente */
+  -webkit-backdrop-filter: blur(2px); /* añadido para Safari */
   width: 12vw;
   height: 70px;
   flex-shrink: 0;
@@ -45,36 +67,33 @@
   font-family: 'Mulish', sans-serif;
   font-weight: 900;
   color: whitesmoke;
-  font-size:medium;
+  font-size: medium;
 }
 
-.date-Calendar-logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 6vw;
-  font-size:large;
-  font-family: 'Mulish', sans-serif;
-  font-weight: bold;
-}
+
 .date-Calendar-details {
-      display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 10vw;
+  width: 60vw; /* Ajusta el ancho para que no se desborde */
   flex-direction: row;
-  font-size:large;
+  font-size: large;
   font-family: 'Mulish', sans-serif;
   font-weight: bold;
 }
+
 .menu-toggle {
-  display: none;
+  display: block;
   font-size: 24px;
   color: white;
-  background: none;
-  border: none;
+  background-color: #333; /* Agregado para asegurar visibilidad */
+  border: 1px solid #ccc; /* Borde temporal para verificar */
+  padding: 10px;
+  border-radius: 5px;
 }
+
+
+/* Logo estilo calendario */
 .logo-Calendar {
   width: 40px;
   border-radius: 9px;
@@ -83,53 +102,13 @@
   backdrop-filter: blur(2px);
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-}
-
-.header-controls {
+/* Agregar una mejora para el contenedor de la vista del calendario */
+.calendar-view-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 89vw;
-  border-bottom: 0.2px solid #A1A1A1;
-  padding-bottom: 1vh;
-}
-
-.search-bar {
-  padding: 5px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-}
-
-.program-button {
-  background-color: #444;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-}
-
-.date-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 86vw;
-}
-
-.week-button {
-  background-color: #444;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  margin-left: 10px;
+  flex-grow: 1;
+  margin-top: 20px;
 }
 
 /* Content */
@@ -153,13 +132,13 @@
   font-size: 18px;
 }
 
-.calendar-view{
+.calendar-view {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.calendar-header{
+.calendar-header {
   display: grid;
   grid-template-columns: auto repeat(7, 1fr);
   background-color: #f3f3f3;
@@ -167,12 +146,12 @@
   font-size: medium;
 }
 
-.calendar-body{
+.calendar-body {
   display: grid;
   grid-template-columns: auto repeat(7, 1fr);
 }
 
-.hour-column .hour-cell{
+.hour-column .hour-cell {
   height: 2.5rem;
   color: #777;
   font-size: 0.875rem;
@@ -197,61 +176,82 @@
 
 /* Estilos para el formulario emergente */
 .event-form-overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.5);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .event-form {
-background: #ffffff;
-padding: 20px;
-border-radius: 8px;
-width: 300px;
-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-text-align: left;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 
 .event-form h3 {
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .event-form button {
-background: #007bff;
-color: white;
-border: none;
-padding: 5px 10px;
-cursor: pointer;
-border-radius: 4px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .event-form button.save-button {
-margin-top: 10px;
+  margin-top: 10px;
 }
 
 .form-input {
-width: 100%;
-padding: 8px;
-margin: 5px 0;
-border: 1px solid #ddd;
-border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 /* Estilo del evento dentro del calendario */
 .event {
-position: absolute;
-font-size: 0.875rem;
-padding: 4px;
-background-color: #007bff;
-color: white;
-border-radius: 4px;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
-} 
+  position: absolute;
+  font-size: 0.875rem;
+  padding: 4px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Estilos de responsive design */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-controls {
+    flex-direction: column;
+  }
+
+  .date-Calendar-logo {
+    width: 50vw;
+  }
+
+  .date-Calendar-details {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
