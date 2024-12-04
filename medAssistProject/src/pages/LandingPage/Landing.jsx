@@ -16,7 +16,7 @@ function LandingPage() {
   return (
     <div className="landing-page">
       <Navbar />
-      <header className="header">
+      <header className="landing-header">
         <div className="landing-header-content">
           <h1 style={{ fontSize: "xxx-large", textAlign: "start" }}>
             MedAssist: Tu compañero de salud moderno
@@ -29,9 +29,9 @@ function LandingPage() {
             puedes dar seguimiento al calendario de citas de otros usuarios, ya
             sean pacientes o doctores.
           </p>
-          <div className="cta-buttons" style={{ display: "flex" , gap: "10px"}}>
-          <button className="cta-button" onClick={() => window.location.href = '/login'}>Acceder como paciente</button>
-          <button className="cta-button" onClick={() => window.location.href = '/login'}>Acceder como doctor</button>
+          <div className="landing-cta-buttons" style={{ display: "flex" , gap: "10px"}}>
+          <button className="landing-cta-button" onClick={() => window.location.href = '/login'}>Acceder como paciente</button>
+          <button className="landing-cta-button" onClick={() => window.location.href = '/login'}>Acceder como doctor</button>
           </div>
           <div className="minsa" style={{ display: "flex", gap: "4vh" ,flexDirection: "column" ,alignItems: "start" }}>
             <p>En colaboración con</p>
@@ -45,7 +45,7 @@ function LandingPage() {
         </div>
       </header>
 
-      <section id="features" className="features">
+      <section id="features" className="landing-features">
         <div className="image-container-doctor-landing">
           <img
             src={DoctorsMA}

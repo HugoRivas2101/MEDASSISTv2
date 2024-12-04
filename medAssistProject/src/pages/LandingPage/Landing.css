@@ -11,12 +11,13 @@
 
 .landing-header-content {
     position: absolute;
-    display: flex;
+    display: flex
+;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 15px;
-
+    padding-left: 2vh;
 
     /* top: 50%;
     right: 50%; */
@@ -35,7 +36,7 @@
     background-repeat: no-repeat;
     height: 100vh; 
 } */
-.header::before {
+.landing-header::before {
     content: '';
     position: absolute;
     top: 10vh;
@@ -48,7 +49,7 @@
     z-index: 0;
 }
 
-.header {
+.landing-header {
     text-align: center;
     padding: 2rem;
     /* background-color: #007bff; */
@@ -61,10 +62,10 @@
     z-index: -1;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
-.cta-button {
+.landing-cta-button {
     background-color: #ffffff;
     color: #1e0062;
     padding: 0.5rem 1.5rem;
@@ -81,7 +82,7 @@
     color: white;
 }
 
-.features {
+.landing-features {
     padding: 2rem;
     background-color: white;
     margin: 1rem 2rem;
