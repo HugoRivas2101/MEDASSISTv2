@@ -68,6 +68,7 @@ letter-spacing: 1.2px;
   .home-doctor-panel {
     width: 60%; /* Ocupa el 65% del ancho */
     padding: 20px;
+    padding-top: 0px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -93,8 +94,9 @@ letter-spacing: 1.2px;
     text-align: center;
   }
   .home-doctor-bienvenida h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: #131212;
+    padding: 2vh;
   }
   
   .home-doctor-parrafo {

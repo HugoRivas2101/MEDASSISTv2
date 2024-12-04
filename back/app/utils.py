@@ -1,5 +1,6 @@
 from app import db, create_app
 from datetime import date
+import random
 
 def reset_database():
     """
@@ -25,53 +26,72 @@ def seed_data():
     from app.models.user_medications import UserMedication
     from app.models.vital_signs import VitalSigns
 
-    # Crear usuario de ejemplo
-    user1 = User(email="hugorivas2101@gmail.com", password="hashed_password")
+    # Diccionario de correos y nombres asignados
+    users_data = {
+        "hugorivas2101@gmail.com": {"nombre": "Hugo Rivas", "edad": 30, "sexo": "Masculino"},
+        "hugo.rivas.g@uni.pe": {"nombre": "Hugo Rivas", "edad": 30, "sexo": "Masculino"},
+        "milagros.ruiz.a@uni.pe": {"nombre": "Milagros Ruiz", "edad": 30, "sexo": "Femenino"},
+        "andrei.trujillo.a@uni.pe": {"nombre": "Andrei Trujillo", "edad": 30, "sexo": "Masculino"},
+        "cleber.aguado.g@uni.pe": {"nombre": "Cleber Aguado", "edad": 30, "sexo": "Masculino"}
+    }
+    
+    # Iterar sobre el diccionario de correos y nombres
+    for email, user_info in users_data.items():
+        # Asignar nombre y demás datos
+        user_name = user_info["nombre"]
+        user_age = user_info["edad"]
+        user_sex = user_info["sexo"]
+        user_password = "hashed_password"  # Simula una contraseña
+        user_dni = random.randint(10000000, 99999999)  # Genera un DNI aleatorio
+        user_phone = f"98765{random.randint(10000, 99999)}"  # Genera un teléfono aleatorio
+        user_address = f"Calle {random.choice(['Falsa', 'Real', 'Ejemplo'])} {random.randint(1, 200)}"  # Dirección aleatoria
+        
+        # Crear el usuario en la base de datos
+        user = User(email=email, password=user_password)
+        db.session.add(user)
+        db.session.commit()
 
-    db.session.add(user1)
-    db.session.commit()
+        # Crear información adicional para el usuario
+        user_info_obj = UserInfo(
+            user_id=user.id,
+            nombres=user_name,
+            dni=str(user_dni),
+            telefono=user_phone,
+            domicilio=user_address,
+            edad=user_age,
+            sexo=user_sex
+        )
+        db.session.add(user_info_obj)
+        db.session.commit()
 
-    # Crear información adicional para el usuario
-    user_info = UserInfo(
-        user_id=user1.id,
-        nombres="Administrador",
-        dni="12345678",
-        telefono="987654321",
-        domicilio="Calle Falsa 123",
-        edad=30,
-        sexo="Masculino"
-    )
-    db.session.add(user_info)
-    db.session.commit()
+        print(f"Información del usuario {email} cargada con éxito.")
 
-    print("Información del usuario cargada con éxito.")
+        # Crear medicamentos aleatorios para el usuario
+        new_medication = UserMedication(
+            user_id=user.id,
+            nombre_medicamento="Paracetamol",
+            dosis="500mg",
+            frecuencia="Cada 8 horas",
+            fecha_inicio=date(2024, 11, 25),
+            fecha_fin=date(2024, 12, 5)
+        )
+        db.session.add(new_medication)
+        db.session.commit()
 
-    # Crear un nuevo medicamento
-    new_medication = UserMedication(
-        user_id=user1.id,
-        nombre_medicamento="Paracetamol",
-        dosis="500mg",
-        frecuencia="Cada 8 horas",
-        fecha_inicio=date(2024, 11, 25),
-        fecha_fin=date(2024, 12, 5)
-    )
-    db.session.add(new_medication)
-    db.session.commit()
+        print(f"Medicamentos para el usuario {email} cargados con éxito.")
 
-    print("Medicamentos cargados con éxito.")
+        # Crear signos vitales aleatorios para el usuario
+        vital_signs = VitalSigns(
+            user_id=user.id,
+            altura=round(random.uniform(1.5, 1.9), 2),  # Altura aleatoria entre 1.5m y 1.9m
+            peso=round(random.uniform(50, 100), 1),  # Peso aleatorio entre 50kg y 100kg
+            imc=round(random.uniform(18.5, 30.0), 1),  # IMC entre valores saludables
+            temperatura=round(random.uniform(36.0, 37.5), 1),  # Temperatura en un rango normal
+            frecuencia_respiratoria=random.randint(12, 20),  # Frecuencia respiratoria entre 12 y 20
+            presion_arterial=f"{random.randint(100, 140)}/{random.randint(60, 90)}",  # Presión arterial
+            frecuencia_cardiaca=random.randint(60, 100)  # Frecuencia cardíaca entre 60 y 100
+        )
+        db.session.add(vital_signs)
+        db.session.commit()
 
-    # Crear signos vitales para el usuario
-    vital_signs = VitalSigns(
-        user_id=user1.id,
-        altura=1.75,
-        peso=70.5,
-        imc=23.0,
-        temperatura=36.5,
-        frecuencia_respiratoria=18,
-        presion_arterial="120/80",
-        frecuencia_cardiaca=72
-    )
-    db.session.add(vital_signs)
-    db.session.commit()
-
-    print("Signos vitales cargados con éxito.")
+        print(f"Signos vitales para el usuario {email} cargados con éxito.")

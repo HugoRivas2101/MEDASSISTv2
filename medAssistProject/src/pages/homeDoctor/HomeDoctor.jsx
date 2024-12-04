@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import inicioImage from "./assets/imagenperfil.png";
 import "./HomeDoctor.css";
 import Header from "../../components/Header";
@@ -7,10 +7,44 @@ import Codigobarras from './assets/codbarras.png';
 import Agenda from './assets/calendaar.png';
 import CheckMarck from './assets/CheckMark.png';
 import users from './assets/users.png';
+import axios from 'axios'; // Importa Axios
+
 import { text } from "@fortawesome/fontawesome-svg-core";
 
 function HomeDoctor() {
+  const [userInfo, setUserInfo] = useState(null); // Estado para almacenar la información del usuario
+  const [loading, setLoading] = useState(true); // Estado para mostrar un indicador de carga
+  const [error, setError] = useState(null); // Estado para manejar errores
+
+  // Realizar la solicitud HTTP al backend usando Axios
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/user/info', {
+          withCredentials: true, // Incluye cookies para autenticación
+        });
+        setUserInfo(response.data); // Guardar los datos en el estado
+        setLoading(false); // Desactivar el indicador de carga
+      } catch (error) {
+        setError(error.message);
+        setLoading(false); // Desactivar el indicador de carga
+      }
+    };
+
+    fetchUserInfo();
+  }, []); // El efecto se ejecuta solo al montar el componente
+
+  // Mostrar un indicador de carga mientras se obtienen los datos
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
+  // Mostrar un mensaje de error si ocurre un problema
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
   
+
   return (
     <div className="home-doctor-general">
       <Navbar />
@@ -18,19 +52,18 @@ function HomeDoctor() {
         <main className="home-doctor-container">
           <div className="home-doctor-perfil">
             <span style={{ display: 'flex', flexDirection: 'column' , alignItems: 'center',}}>
-            <h2>Doctor</h2>
-            <h3>David Ruiz</h3>
+
+            <h3>{userInfo.nombres}</h3>
             </span>
             <img src={inicioImage} alt="perfil" style={{ width: '10vh', height: '10vh' }}/>
             <div className="datos-doctoor-home">
               <span className="home-doctor-titulo-datos">Información personal</span>
               <div className="home-doctor-datos">
-                <ul>Nombre: David</ul>
-                <ul>Apellidos: Ruiz Goñi</ul>
-                <ul>DNI: 73192192</ul>
-                <ul>Teléfono: 987435432</ul>
-                <ul>Correo: david.ruiz.g@uni.pe</ul>
-                <ul>Especialidad: Cirujano</ul>
+                <ul>Nombre: {userInfo.nombres}</ul>
+                <ul>DNI: {userInfo.dni}</ul>
+                <ul>Teléfono: {userInfo.telefono}</ul>
+                <ul>Correo: {userInfo.correo}</ul>
+                <ul>Sexo: {userInfo.sexo}</ul>
               </div>
               <div className="paciente-item3">
                 <img src={Codigobarras} alt="imagen de perfil" style={{ width: '80%', height: '5vh' }} />
@@ -41,7 +74,7 @@ function HomeDoctor() {
           </div>
           <div className="home-doctor-panel">
             <div className="home-doctor-bienvenida">
-              <h1>¡Bienvenido Dr. David!</h1>
+              <h1>¡Bienvenido {userInfo.nombres.split(' ')[0]}!</h1>
             </div>
             <div className="home-doctor-parrafo">
               <p>

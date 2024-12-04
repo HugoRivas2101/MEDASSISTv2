@@ -27,6 +27,7 @@ class UserInfoController:
 
             # Devolver la información del usuario
             return jsonify({
+                "correo": user_email,
                 "nombres": user_info.nombres,
                 "dni": user_info.dni,
                 "telefono": user_info.telefono,

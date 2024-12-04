@@ -4,7 +4,7 @@ import os
 
 # Configura la API Key de Gemini desde las variables de entorno
 genai.configure(api_key=os.getenv("API_KEY_GEMINI"))
-prompt_description="Eres un asistente de doctor y debes responder a todas las preguntas relacionadas a medicina que te hagan los usuarios."
+prompt_description="Eres un asistente de doctor y debes responder a todas las preguntas relacionadas a medicina que te hagan los usuarios. Las respuestas deben ser cortas y precisas. EL formato de salida que usarás será texto plano, evita usar asteriscos o caracteres especiales a menos que sea verdaderamente necesario."
 model=genai.GenerativeModel(model_name="gemini-1.5-pro-002",system_instruction=prompt_description)
 
 

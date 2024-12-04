@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Importa Axios
-import './LeftPaciente.css';
-import ImagenPerfil from '../assets/imagenperfil.png';
-import Codigobarras from '../assets/CodigoBarra.png';
+import React, { useState, useEffect } from "react";
+import axios from "axios"; // Importa Axios
+import "./LeftPaciente.css";
+import ImagenPerfil from "../assets/imagenperfil.png";
+import Codigobarras from "../assets/CodigoBarra.png";
 
 function LeftPaciente() {
   const [userInfo, setUserInfo] = useState(null); // Estado para almacenar la información del usuario
@@ -13,7 +13,7 @@ function LeftPaciente() {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/user/info', {
+        const response = await axios.get("http://localhost:5000/user/info", {
           withCredentials: true, // Incluye cookies para autenticación
         });
         setUserInfo(response.data); // Guardar los datos en el estado
@@ -47,19 +47,20 @@ function LeftPaciente() {
           <img
             src={ImagenPerfil}
             alt="imagen de perfil"
-            style={{ width: '50%', height: '80%' }}
+            style={{ width: "50%", height: "80%" }}
           />
           <div className="nombre-perfil">
-            ¡ Hola ! <br /> {userInfo.nombres}
+            ¡ Hola <br /> {userInfo.nombres.split(" ")[0]}!
           </div>
         </div>
-        <div className="edad-perfil" style={{ fontWeight: 'bold' }}>
+        <div className="edad-perfil" style={{ fontWeight: "bold" }}>
           {userInfo.edad} años
         </div>
       </div>
       <div className="paciente-item2">
         <div className="title-datos-personales">DATOS PERSONALES</div>
         <div className="content-datos-personales">
+
           <p>
             <strong>DNI:</strong> {userInfo.dni}
           </p>
@@ -78,7 +79,7 @@ function LeftPaciente() {
         <img
           src={Codigobarras}
           alt="imagen de código de barras"
-          style={{ width: '80%', height: '100%' }}
+          style={{ width: "80%", height: "100%" }}
         />
       </div>
     </div>

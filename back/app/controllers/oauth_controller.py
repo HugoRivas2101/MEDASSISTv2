@@ -37,7 +37,7 @@ class OAuthController:
             session['user'] = user_info
             
             #return jsonify(user_info)  # Puedes cambiar esto a una redirección si prefieres
-            return redirect(f"http://localhost:5173/homePaciente")
+            return redirect(f"http://localhost:5173/home")
         except Exception as e:
             return jsonify({"error": f"Error occurred during authorization: {str(e)}"}), 500
 
