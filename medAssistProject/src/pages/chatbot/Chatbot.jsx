@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Chatbot.css";
 import api from "../../services/api";
 import Navbar from "../../components/Navbar";
-import VoiceRecognizer from "./assets/VoiceRecognizer";
-
+import VoiceRecognizer from "./assets/VoiceRecognizer"; // Importa el nuevo componente
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
@@ -93,14 +92,6 @@ function Chatbot() {
             onEnd={() => setIsListening(false)}
             isListening={isListening}
           />
-          
-          {/* Nuevos elementos para subida de archivos */}
-          <input 
-            type="file" 
-            onChange={handleFileChange} 
-            accept="image/*"
-          />
-          <chatbot-button onClick={handleFileUpload}>Subir Imagen</chatbot-button>
         </div>
       </div>
     </main>
