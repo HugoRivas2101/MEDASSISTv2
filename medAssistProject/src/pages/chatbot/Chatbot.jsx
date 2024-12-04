@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import "./Chatbot.css";
 import api from "../../services/api";
 import Navbar from "../../components/Navbar";
-import VoiceRecognizer from "./assets/VoiceRecognizer"; // Importa el nuevo componente
+import VoiceRecognizer from "./assets/VoiceRecognizer";
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isListening, setIsListening] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const userMessage = { sender: "user", text: input };
     setMessages([...messages, userMessage]);
-
     try {
       const response = await api.post("/chatbot/tellme", { message: input });
       const botMessage = { sender: "bot", text: response.data.response };
@@ -22,12 +21,46 @@ function Chatbot() {
     } catch (error) {
       console.error("Error al obtener la respuesta del chatbot", error);
     }
-
     setInput("");
   };
 
+  const handleFileUpload = async () => {
+    if (!selectedFile) {
+      alert("Por favor, selecciona un archivo");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('imagen', selectedFile);
+
+    try {
+      const response = await api.post("/chatbot/imagen", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      const botMessage = { 
+        sender: "bot", 
+        text: response.data.diagnostico 
+      };
+      setMessages((prevMessages) => [...prevMessages, botMessage]);
+    } catch (error) {
+      console.error("Error al subir la imagen", error);
+      const errorMessage = { 
+        sender: "bot", 
+        text: "Error al procesar la imagen" 
+      };
+      setMessages((prevMessages) => [...prevMessages, errorMessage]);
+    }
+  };
+
   const handleVoiceResult = (text) => {
-    setInput(text); // Poner el texto capturado en el campo de entrada
+    setInput(text);
+  };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
   };
 
   return (
@@ -59,6 +92,14 @@ function Chatbot() {
             onEnd={() => setIsListening(false)}
             isListening={isListening}
           />
+          
+          {/* Nuevos elementos para subida de archivos */}
+          <input 
+            type="file" 
+            onChange={handleFileChange} 
+            accept="image/*"
+          />
+          <button onClick={handleFileUpload}>Subir Imagen</button>
         </div>
       </div>
     </main>
