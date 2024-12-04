@@ -8,13 +8,14 @@ import Calendar from "./pages/Calendar/Calendar";
 import HomePaciente from "./pages/HomePaciente/HomePaciente";
 import Home from "./pages/Home/Home";
 import LandingPage from "./pages/LandingPage/Landing";
+import Register from "./pages/register/Register";
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/home" element={<HomeDoctor/>}/>
         <Route path="/calendar" element={<Calendar/>}/>
